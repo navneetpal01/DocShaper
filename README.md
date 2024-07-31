@@ -39,7 +39,7 @@ This project is built using Kotlin, Java, and Gradle. Here are the steps to buil
 - Minimum SDK 26
 
 ### Steps
-- Open a terminal and run the following git command:  <pre>git clone https://github.com/Anthonyy232/Paperize.git </pre>
+- Open a terminal and run the following git command:  <pre>git clone https://github.com/navneetpal01/DocShaper.git </pre>
 - Launch Android Studio and choose Open an existing Android Studio project. Navigate to the cloned repository and select the root folder of the project.
 - In Android Studio, click on Build -> Generate Signed Bundle / APK and follow the instructions to generate an APK
 - Alternatively, click `▶ Run` and build the app and run it immediately
