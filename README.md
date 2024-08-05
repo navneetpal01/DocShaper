@@ -17,13 +17,6 @@ Supports Android 10+: Compatible with devices running Android 10 and above.
 - [Jetpack Compose](https://developer.android.com/develop/ui/compose) - A declarative UI toolkit for building native Android UI
 - [Material 3](https://m3.material.io/) - A UI design system git for modern UI guidelines
 - [Dagger Hilt](https://dagger.dev/hilt/) - A dependency injection library
-- [Room](https://developer.android.com/training/data-storage/room) - A persistence library that provides an abstraction layer over SQLite interfacing with Kotlin
-- [AboutLibraries](https://github.com/mikepenz/AboutLibraries) - A library to offer some information of libraries
-- [Lottie Compose](https://github.com/airbnb/lottie) - A library that provides Lottie animation support for Jetpack Compose
-- [Landscapist](https://github.com/skydoves/landscapist) - A Compose and KPP image loading library that streamlines Glide, Coil, and Fresco
-- [Zoomable](https://github.com/usuiat/Zoomable) - A library that provides a zoomable and pannable view, which can be used with any view you want
-- [AnimatedFABMenu](https://github.com/rajaumair7890/AnimatedFABMenu) - A animated floating action button with Material 3 design
-- [DocumentFileCompat](https://github.com/ItzNotABug/DocumentFileCompat) - A DocumentFile wrapper that caches the result to improve efficiency
 
 Thanks to the creators and maintainers of the open-source libraries used in this project.
 
@@ -36,7 +29,7 @@ This project is built using Kotlin, Java, and Gradle. Here are the steps to buil
 - Android Studio Jellyfish | 2024.1.1 or later
 - Android Gradle Plugin 8.5.0 or later
 - Gradle 8.9
-- Minimum SDK 26
+- Minimum SDK 29
 
 ### Steps
 - Open a terminal and run the following git command:  <pre>git clone https://github.com/navneetpal01/DocShaper.git </pre>
@@ -46,5 +39,5 @@ This project is built using Kotlin, Java, and Gradle. Here are the steps to buil
 
 
 ## Contributions
-DocShaper is licensed under the MIT License. See the LICENSE file for more information.
+DocShaper is licensed under the MIT License see the LICENSE file for more information.
 All contributions to the app is welcome. Feel free to report any issues and create pull requests for any issues or pull requests.
