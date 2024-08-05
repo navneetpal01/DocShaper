@@ -39,5 +39,9 @@ This project is built using Kotlin, Java, and Gradle. Here are the steps to buil
 
 
 ## Contributions
-DocShaper is licensed under the MIT License. See the LICENSE file for more information.
-All contributions to the app is welcome. Feel free to report any issues and create pull requests for any issues or pull requests.
+DocShaper is licensed under the MIT License see the LICENSE file for more information.
+All contributions to the app is welcome. Feel free to report any issues and create pull requests for any issues or pull requests
+
+
+
+.
