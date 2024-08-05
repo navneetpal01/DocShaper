@@ -1,6 +1,5 @@
 package com.app.docshaper.presentation.navigation
 
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -11,13 +10,13 @@ import com.app.docshaper.presentation.onboarding_screen.OnBoardingScreen
 
 @Composable
 fun NavGraph(
+    modifier: Modifier,
     navController: NavHostController,
     startDestination: Any
 ) {
 
     NavHost(
-        modifier = Modifier
-            .fillMaxSize(),
+        modifier = modifier,
         navController = navController,
         startDestination = startDestination
     ) {
@@ -26,7 +25,7 @@ fun NavGraph(
             OnBoardingScreen()
         }
 
-        navigation<Tabs>(
+        navigation<Home>(
             startDestination = DocShaperRoute.Home
         ) {
             tabs()

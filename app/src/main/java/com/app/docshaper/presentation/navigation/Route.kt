@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 object OnBoarding
 
 @Serializable
-object Tabs
+object Home
 
 @Serializable
 object Settings

@@ -7,15 +7,9 @@ import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.navigation.compose.rememberNavController
 import com.app.docshaper.core.SettingsConstants.FIRST_LAUNCH
 import com.app.docshaper.data.settings.SettingsDataStore
-import com.app.docshaper.presentation.navigation.NavGraph
-import com.app.docshaper.presentation.navigation.OnBoarding
-import com.app.docshaper.presentation.navigation.Tabs
 import com.app.docshaper.presentation.settings_screen.SettingsViewModel
-import com.app.docshaper.ui.theme.DocShaperTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
@@ -37,16 +31,14 @@ class MainActivity : ComponentActivity() {
             )
         )
         setContent {
-            val firstLaunch = runBlocking { settingsDataStore.getBoolean(FIRST_LAUNCH) }
-            val settingsState = settingsViewModel.state.collectAsStateWithLifecycle()
-
-            DocShaperTheme {
-                val navController = rememberNavController()
-                NavGraph(
-                    navController = navController,
-                    startDestination = OnBoarding
-                )
-            }
+            val firstLaunch = runBlocking { settingsDataStore.getBoolean(FIRST_LAUNCH)  } ?: true
+            DocShaperApp(
+                firstLaunch = firstLaunch,
+                settingsViewModel = settingsViewModel,
+                finishActivity = {
+                    finish()
+                }
+            )
         }
     }
 
