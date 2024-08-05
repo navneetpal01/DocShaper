@@ -28,10 +28,14 @@ class MainActivity : ComponentActivity() {
             statusBarStyle = SystemBarStyle.light(
                 Color.TRANSPARENT,
                 Color.TRANSPARENT
+            ),
+            navigationBarStyle = SystemBarStyle.light(
+                Color.WHITE,
+                Color.WHITE
             )
         )
         setContent {
-            val firstLaunch = runBlocking { settingsDataStore.getBoolean(FIRST_LAUNCH)  } ?: true
+            val firstLaunch = runBlocking { settingsDataStore.getBoolean(FIRST_LAUNCH) } ?: true
             DocShaperApp(
                 firstLaunch = firstLaunch,
                 settingsViewModel = settingsViewModel,

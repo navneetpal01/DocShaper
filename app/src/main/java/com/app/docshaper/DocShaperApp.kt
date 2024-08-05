@@ -7,9 +7,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.app.docshaper.presentation.navigation.DocShaperTabs
+import com.app.docshaper.presentation.navigation.Home
 import com.app.docshaper.presentation.navigation.NavGraph
 import com.app.docshaper.presentation.navigation.OnBoarding
-import com.app.docshaper.presentation.navigation.Home
 import com.app.docshaper.presentation.settings_screen.SettingsViewModel
 import com.app.docshaper.ui.theme.DocShaperTheme
 
@@ -29,7 +29,7 @@ fun DocShaperApp(
             bottomBar = {
 
             }
-        ){ paddingValues ->
+        ) { paddingValues ->
             NavGraph(
                 modifier = Modifier
                     .padding(paddingValues)
@@ -39,6 +39,5 @@ fun DocShaperApp(
             )
         }
     }
-
 
 }
