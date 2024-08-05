@@ -13,13 +13,14 @@ object Tabs
 object Settings
 
 @Serializable
-sealed class DocShaperTabs{
+sealed class DocShaperRoute {
     @Serializable
-    object Home : DocShaperTabs()
+    object Home : DocShaperRoute()
 
     @Serializable
-    object Files : DocShaperTabs()
+    object Files : DocShaperRoute()
 
     @Serializable
-    object Search : DocShaperTabs()
+    object Search : DocShaperRoute()
 }
+

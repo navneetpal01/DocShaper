@@ -7,7 +7,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
-import com.app.docshaper.presentation.home_screen.HomeScreen
 import com.app.docshaper.presentation.onboarding_screen.OnBoardingScreen
 
 @Composable
@@ -28,9 +27,9 @@ fun NavGraph(
         }
 
         navigation<Tabs>(
-            startDestination = DocShaperTabs.Home
+            startDestination = DocShaperRoute.Home
         ) {
-
+            tabs()
         }
 
 
