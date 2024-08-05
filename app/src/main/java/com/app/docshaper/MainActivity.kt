@@ -8,8 +8,13 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.compose.rememberNavController
 import com.app.docshaper.core.SettingsConstants.FIRST_LAUNCH
 import com.app.docshaper.data.settings.SettingsDataStore
+import com.app.docshaper.presentation.navigation.Home
+import com.app.docshaper.presentation.navigation.NavGraph
+import com.app.docshaper.presentation.navigation.OnBoarding
+import com.app.docshaper.presentation.onboarding_screen.OnBoardingScreen
 import com.app.docshaper.presentation.settings_screen.SettingsViewModel
 import com.app.docshaper.ui.theme.DocShaperTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,7 +42,11 @@ class MainActivity : ComponentActivity() {
             val settingsState = settingsViewModel.state.collectAsStateWithLifecycle()
 
             DocShaperTheme {
-
+                val navController = rememberNavController()
+                NavGraph(
+                    navController = navController,
+                    startDestination = OnBoarding
+                )
             }
         }
     }

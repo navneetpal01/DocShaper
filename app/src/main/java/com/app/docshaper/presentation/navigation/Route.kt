@@ -7,11 +7,19 @@ import kotlinx.serialization.Serializable
 object OnBoarding
 
 @Serializable
-object Home
+object Tabs
 
 @Serializable
-object Files
+object Settings
 
 @Serializable
-object Search
+sealed class DocShaperTabs{
+    @Serializable
+    object Home : DocShaperTabs()
 
+    @Serializable
+    object Files : DocShaperTabs()
+
+    @Serializable
+    object Search : DocShaperTabs()
+}
