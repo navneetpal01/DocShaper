@@ -26,5 +26,5 @@ enum class DocShaperTabs(
     @DrawableRes val icon: Int,
     val route: DocShaperRoute
 ) {
-    Home(title = )
+
 }
