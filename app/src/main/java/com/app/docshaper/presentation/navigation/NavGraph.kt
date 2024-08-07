@@ -41,7 +41,6 @@ fun NavGraph(
                 onCompleted = {
                     when (it) {
                         SettingsEvent.SetFirstLaunch -> settingsViewModel.onEvent(it)
-                        else -> Unit
                     }
                     actions.onBoardingComplete(backStackEntry)
                 }
