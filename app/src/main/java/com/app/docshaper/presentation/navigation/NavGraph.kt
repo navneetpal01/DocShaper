@@ -44,7 +44,11 @@ fun NavGraph(
         navigation<Home>(
             startDestination = DocShaperRoute.Home
         ) {
-            tabs()
+            tabs(
+                finishActivity = {
+                    finishActivity()
+                }
+            )
         }
 
 

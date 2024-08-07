@@ -1,6 +1,7 @@
 package com.app.docshaper.presentation
 
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -24,7 +25,7 @@ fun DocShaperApp(
         NavGraph(
             modifier = Modifier
                 .fillMaxSize()
-                .systemBarsPadding(),
+                .navigationBarsPadding(),
             navController = navController,
             startDestination = if (firstLaunch) OnBoarding else Home,
             finishActivity = finishActivity,
