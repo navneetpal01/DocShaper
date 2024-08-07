@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import com.app.docshaper.presentation.onboarding_screen.OnBoardingScreen
+import com.app.docshaper.presentation.settings_screen.SettingsEvent
 import com.app.docshaper.presentation.settings_screen.SettingsViewModel
 
 @Composable
@@ -29,7 +30,15 @@ fun NavGraph(
             BackHandler {
                 finishActivity()
             }
-            OnBoardingScreen()
+            OnBoardingScreen(
+                onCompleted = {
+                    when (it) {
+                        SettingsEvent.SetFirstLaunch -> settingsViewModel.onEvent(it)
+                        else -> Unit
+                    }
+                    navController.navigate(DocShaperRoute.Home)
+                }
+            )
         }
 
         navigation<Home>(
