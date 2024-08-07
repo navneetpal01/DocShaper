@@ -1,4 +1,4 @@
-package com.app.docshaper
+package com.app.docshaper.presentation
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.systemBarsPadding

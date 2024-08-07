@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import com.app.docshaper.core.SettingsConstants.FIRST_LAUNCH
 import com.app.docshaper.data.settings.SettingsDataStore
+import com.app.docshaper.presentation.DocShaperApp
 import com.app.docshaper.presentation.settings_screen.SettingsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.runBlocking
@@ -35,7 +36,7 @@ class MainActivity : ComponentActivity() {
             )
         )
         setContent {
-            val firstLaunch = runBlocking { settingsDataStore.getBoolean(FIRST_LAUNCH) } ?: true
+            val firstLaunch = runBlocking { settingsDataStore.getBoolean(FIRST_LAUNCH) ?: true }
             DocShaperApp(
                 firstLaunch = firstLaunch,
                 settingsViewModel = settingsViewModel,

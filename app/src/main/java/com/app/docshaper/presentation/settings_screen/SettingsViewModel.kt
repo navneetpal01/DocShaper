@@ -28,11 +28,24 @@ class SettingsViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            val firstLaunch = async { settingsDataStore.getBoolean(FIRST_LAUNCH) ?: false}
+            val firstLaunch = async { settingsDataStore.getBoolean(FIRST_LAUNCH) ?: true }
             _state.update {
                 it.copy(
                     firstLaunch = firstLaunch.await()
                 )
+            }
+        }
+    }
+
+    fun onEvent(event: SettingsEvent) {
+        when (event) {
+            SettingsEvent.SetFirstLaunch -> {
+                viewModelScope.launch {
+                    settingsDataStore.putBoolean(FIRST_LAUNCH, false)
+                    _state.update {
+                        it.copy(firstLaunch = false)
+                    }
+                }
             }
         }
     }
