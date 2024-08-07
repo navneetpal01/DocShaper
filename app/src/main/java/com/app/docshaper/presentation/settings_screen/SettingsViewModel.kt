@@ -25,6 +25,7 @@ class SettingsViewModel @Inject constructor(
         SharingStarted.WhileSubscribed(5000),
         SettingsState()
     )
+    var setKeepOnScreenCondition: Boolean = true
 
     init {
         viewModelScope.launch {
@@ -34,6 +35,7 @@ class SettingsViewModel @Inject constructor(
                     firstLaunch = firstLaunch.await()
                 )
             }
+            setKeepOnScreenCondition = false
         }
     }
 
