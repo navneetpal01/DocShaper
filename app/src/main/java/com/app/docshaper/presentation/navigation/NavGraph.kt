@@ -14,6 +14,7 @@ fun NavGraph(
     modifier: Modifier,
     navController: NavHostController,
     startDestination: Any,
+    finishActivity: () -> Unit,
     settingsViewModel: SettingsViewModel
 ) {
 
