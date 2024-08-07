@@ -1,5 +1,6 @@
 package com.app.docshaper.presentation.navigation
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -25,6 +26,9 @@ fun NavGraph(
     ) {
 
         composable<OnBoarding> {
+            BackHandler {
+                finishActivity()
+            }
             OnBoardingScreen()
         }
 
