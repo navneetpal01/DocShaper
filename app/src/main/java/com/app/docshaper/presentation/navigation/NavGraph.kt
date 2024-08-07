@@ -2,23 +2,30 @@ package com.app.docshaper.presentation.navigation
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.Lifecycle
+import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
+import androidx.navigation.compose.rememberNavController
 import com.app.docshaper.presentation.onboarding_screen.OnBoardingScreen
 import com.app.docshaper.presentation.settings_screen.SettingsEvent
 import com.app.docshaper.presentation.settings_screen.SettingsViewModel
 
 @Composable
 fun NavGraph(
-    modifier: Modifier,
-    navController: NavHostController,
+    modifier: Modifier = Modifier,
+    navController: NavHostController = rememberNavController(),
     startDestination: Any,
     finishActivity: () -> Unit,
     settingsViewModel: SettingsViewModel
 ) {
+
+    val actions = remember(navController) { MainActions(navController) }
 
     NavHost(
         modifier = modifier,
@@ -26,7 +33,7 @@ fun NavGraph(
         startDestination = startDestination
     ) {
 
-        composable<OnBoarding> {
+        composable<OnBoarding> { backStackEntry: NavBackStackEntry ->
             BackHandler {
                 finishActivity()
             }
@@ -36,7 +43,7 @@ fun NavGraph(
                         SettingsEvent.SetFirstLaunch -> settingsViewModel.onEvent(it)
                         else -> Unit
                     }
-                    navController.navigate(DocShaperRoute.Home)
+                    actions.onBoardingComplete(backStackEntry)
                 }
             )
         }
@@ -53,6 +60,15 @@ fun NavGraph(
 
 
     }
-
-
 }
+
+class MainActions(navController: NavController) {
+    val onBoardingComplete: (NavBackStackEntry) -> Unit = { from ->
+        if (from.lifecycleIsResumed()) {
+            navController.navigate(DocShaperRoute.Home)
+        }
+    }
+}
+
+private fun NavBackStackEntry.lifecycleIsResumed() =
+    this.lifecycle.currentState == Lifecycle.State.RESUMED
