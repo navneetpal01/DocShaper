@@ -12,7 +12,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
+import com.app.docshaper.presentation.files_screen.FilesScreen
+import com.app.docshaper.presentation.home_screen.HomeScreen
 import com.app.docshaper.presentation.onboarding_screen.OnBoardingScreen
+import com.app.docshaper.presentation.search_screen.SearchScreen
 import com.app.docshaper.presentation.settings_screen.SettingsEvent
 import com.app.docshaper.presentation.settings_screen.SettingsViewModel
 
@@ -50,11 +53,18 @@ fun NavGraph(
         navigation<Home>(
             startDestination = DocShaperRoute.Home
         ) {
-            tabs(
-                finishActivity = {
+            composable<DocShaperRoute.Home> {
+                BackHandler {
                     finishActivity()
                 }
-            )
+                HomeScreen()
+            }
+            composable<DocShaperRoute.Files> {
+                FilesScreen()
+            }
+            composable<DocShaperRoute.Search> {
+                SearchScreen()
+            }
         }
 
 
