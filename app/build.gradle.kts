@@ -9,7 +9,7 @@ plugins {
 
 android {
     namespace = "com.app.docshaper"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.app.docshaper"
@@ -70,10 +70,11 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation("androidx.navigation:navigation-compose:2.8.0-beta05")
+    implementation("androidx.navigation:navigation-compose:2.8.0-beta07")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
     implementation("androidx.datastore:datastore:1.1.1")
     implementation("androidx.datastore:datastore-preferences:1.1.1")
     implementation("com.google.dagger:hilt-android:2.51.1")
     ksp("com.google.dagger:hilt-android-compiler:2.51.1")
+    implementation("androidx.core:core-splashscreen:1.2.0-alpha01")
 }
