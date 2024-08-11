@@ -1,12 +1,14 @@
 package com.app.docshaper
 
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.app.docshaper.core.SettingsConstants.FIRST_LAUNCH
 import com.app.docshaper.data.settings.SettingsDataStore
 import com.app.docshaper.presentation.DocShaperApp
@@ -35,6 +37,11 @@ class MainActivity : ComponentActivity() {
                 Color.WHITE
             )
         )
+        val splashScreen = installSplashScreen()
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.R) {
+
+        }
+        splashScreen.setKeepOnScreenCondition { settingsViewModel.setKeepOnScreenCondition }
         setContent {
             val firstLaunch = runBlocking { settingsDataStore.getBoolean(FIRST_LAUNCH) ?: true }
             DocShaperApp(
