@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="App.Starting.Theme" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/system_ocean_breeze</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/icon_app</item>
-        <item name="postSplashScreenTheme">@style/Theme.DocShaper</item>
-    </style>
-</resources>
