@@ -3,7 +3,7 @@
 DocShaper is an open-source Android application that serves as an all-in-one document reader. It supports a variety of document formats including PDF, DOC, DOCX, XLS, PPT, and TXT. DocShaper not only allows you to view these documents but also enables you to share them with a single click. The app is designed to be compatible with Android 10 and above, ensuring it can run on most modern devices.
 
 ## Features
-PDF Reader: Easily open and read PDF documents.
+PDF Reader & Editor: Easily open, read, and customize PDF documents. Merge PDFs, add new content, and tailor your documents as needed.
 Word Reader: View DOC and DOCX files without any hassle.
 Spreadsheet Viewer: Open and read XLS and XLSX files.
 PowerPoint Viewer: Access and view PPT files seamlessly.
