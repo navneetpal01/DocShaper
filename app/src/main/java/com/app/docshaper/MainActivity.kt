@@ -39,7 +39,7 @@ class MainActivity : ComponentActivity() {
         )
         val splashScreen = installSplashScreen()
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.R) {
-
+            //TODO
         }
         splashScreen.setKeepOnScreenCondition { settingsViewModel.setKeepOnScreenCondition }
         setContent {
