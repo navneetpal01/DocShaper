@@ -14,11 +14,11 @@ Supports Android 10+: Compatible with devices running Android 10 and above.
 ## Technologies
 
 - [Kotlin](https://kotlinlang.org/) - A programming language that is used for Android app development
-- [Mvi](https://www.geeksforgeeks.org/model-view-intent-mvi-pattern-in-reactive-programming-a-comprehensive-overview/) - A modern design pattern for reactive programming.
 - [Jetpack Compose](https://developer.android.com/develop/ui/compose) - A declarative UI toolkit for building native Android UI
 - [Material 3](https://m3.material.io/) - A UI design system git for modern UI guidelines
+- [Mvi](https://www.geeksforgeeks.org/model-view-intent-mvi-pattern-in-reactive-programming-a-comprehensive-overview/) - A modern design pattern for reactive programming
 - [Dagger Hilt](https://dagger.dev/hilt/) - A dependency injection library
-- [Preferences DataStore](https://developer.android.com/codelabs/android-preferences-datastore) - DataStore is a new and improved data storage solution aimed at replacing SharedPreferences.
+- [Preferences DataStore](https://developer.android.com/codelabs/android-preferences-datastore) - DataStore is a new and improved data storage solution aimed at replacing SharedPreferences
 
 Thanks to the creators and maintainers of the open-source libraries used in this project.
 
