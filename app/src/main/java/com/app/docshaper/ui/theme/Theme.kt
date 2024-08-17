@@ -1,6 +1,5 @@
 package com.app.docshaper.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -12,47 +11,68 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = system_theme_light_primary,
+    onPrimary = system_theme_light_onPrimary,
+    primaryContainer = system_theme_light_primaryContainer
+
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+    primary = system_theme_dark_primary,
+    onPrimary = system_theme_dark_onPrimary,
+    primaryContainer = system_theme_dark_primaryContainer
+)
 
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+private val AmoledDarkColors = darkColorScheme(
+    primary = system_theme_dark_primary,
+    onPrimary = system_theme_dark_onPrimary,
+    primaryContainer = system_theme_dark_primaryContainer
 )
 
 @Composable
 fun DocShaperTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    darkMode: Boolean?,
+    amoledMode: Boolean,
+    dynamicTheming: Boolean,
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
+    val context = LocalContext.current
+    val isDarkMode = isDarkMode(darkMode = darkMode)
+    val isDynamicTheming = isDynamicTheming(dynamicTheming = dynamicTheming)
+    val dynamicThemingSupported = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+    val colors = when {
+        isDynamicTheming && dynamicThemingSupported && isDarkMode -> dynamicDarkColorScheme(context)
+        isDynamicTheming && dynamicThemingSupported && !isDarkMode -> dynamicLightColorScheme(
+            context
+        )
 
-        darkTheme -> DarkColorScheme
+        isDarkMode && amoledMode -> AmoledDarkColors
+        isDarkMode && !amoledMode -> DarkColorScheme
         else -> LightColorScheme
     }
 
     MaterialTheme(
-        colorScheme = colorScheme,
+        colorScheme = colors,
         typography = Typography,
         content = content
     )
+
+}
+
+
+@Composable
+private fun isDarkMode(darkMode: Boolean?): Boolean {
+    return when (darkMode) {
+        true -> true
+        false -> false
+        else -> isSystemInDarkTheme()
+    }
+}
+
+@Composable
+private fun isDynamicTheming(dynamicTheming: Boolean): Boolean {
+    return when (dynamicTheming) {
+        true -> true
+        false -> false
+    }
 }
