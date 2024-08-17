@@ -13,9 +13,9 @@ DocShaper is an open-source Android application that serves as an all-in-one doc
 
 ## Technologies
 
-- [Kotlin](https://kotlinlang.org/) - A programming language that is used for Android app development
-- [Jetpack Compose](https://developer.android.com/develop/ui/compose) - A declarative UI toolkit for building native Android UI
-- [Material 3](https://m3.material.io/) - A UI design system git for modern UI guidelines
+- [Kotlin](https://kotlinlang.org/) - Programming language for Android app development.
+- [Jetpack Compose](https://developer.android.com/develop/ui/compose) - Declarative UI toolkit for building native Android UIs.
+- [Material 3](https://m3.material.io/) - UI design system for modern guidelines
 - [Mvi](https://www.geeksforgeeks.org/model-view-intent-mvi-pattern-in-reactive-programming-a-comprehensive-overview/) - A modern design pattern for reactive programming
 - [Dagger Hilt](https://dagger.dev/hilt/) - A dependency injection library
 - [Preferences DataStore](https://developer.android.com/codelabs/android-preferences-datastore) - DataStore is a new and improved data storage solution aimed at replacing SharedPreferences
