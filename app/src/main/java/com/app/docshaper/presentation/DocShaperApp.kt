@@ -20,7 +20,11 @@ fun DocShaperApp(
     finishActivity: () -> Unit
 ) {
 
-    DocShaperTheme {
+    DocShaperTheme(
+        darkMode = ,
+        amoledMode = ,
+        dynamicTheming = ,
+    ){
         val navController = rememberNavController()
         NavGraph(
             modifier = Modifier

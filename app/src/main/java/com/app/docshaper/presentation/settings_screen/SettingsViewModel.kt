@@ -2,7 +2,7 @@ package com.app.docshaper.presentation.settings_screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.app.docshaper.core.SettingsConstants.FIRST_LAUNCH
+import com.app.docshaper.core.SettingsConstants
 import com.app.docshaper.data.settings.SettingsDataStore
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
@@ -29,10 +29,17 @@ class SettingsViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            val firstLaunch = async { settingsDataStore.getBoolean(FIRST_LAUNCH) ?: true }
+            val firstLaunch =
+                async { settingsDataStore.getBoolean(SettingsConstants.FIRST_LAUNCH) ?: true }
+            val darkMode = async { settingsDataStore.getBoolean(SettingsConstants.DARK_MODE_TYPE) }
+            val amoledTheme = async { settingsDataStore.getBoolean(SettingsConstants.AMOLED_THEME_TYPE) ?: false }
+            val dynamicTheming = async { settingsDataStore.getBoolean(SettingsConstants.DYNAMIC_THEME_TYPE) ?: false }
             _state.update {
                 it.copy(
-                    firstLaunch = firstLaunch.await()
+                    firstLaunch = firstLaunch.await(),
+                    darkMode = darkMode.await(),
+                    amoledTheme = amoledTheme.await(),
+                    dynamicTheming = dynamicTheming.await()
                 )
             }
             setKeepOnScreenCondition = false
@@ -43,12 +50,16 @@ class SettingsViewModel @Inject constructor(
         when (event) {
             SettingsEvent.SetFirstLaunch -> {
                 viewModelScope.launch {
-                    settingsDataStore.putBoolean(FIRST_LAUNCH, false)
+                    settingsDataStore.putBoolean(SettingsConstants.FIRST_LAUNCH, false)
                     _state.update {
                         it.copy(firstLaunch = false)
                     }
                 }
             }
+
+            is SettingsEvent.SetDarkMode -> TODO()
+            is SettingsEvent.SetAmoledTheme -> TODO()
+            is SettingsEvent.SetDynamicTheming -> TODO()
         }
     }
 
