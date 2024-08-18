@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.app.docshaper.core.SettingsConstants
 import com.app.docshaper.data.settings.SettingsDataStore
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -32,8 +33,11 @@ class SettingsViewModel @Inject constructor(
             val firstLaunch =
                 async { settingsDataStore.getBoolean(SettingsConstants.FIRST_LAUNCH) ?: true }
             val darkMode = async { settingsDataStore.getBoolean(SettingsConstants.DARK_MODE_TYPE) }
-            val amoledTheme = async { settingsDataStore.getBoolean(SettingsConstants.AMOLED_THEME_TYPE) ?: false }
-            val dynamicTheming = async { settingsDataStore.getBoolean(SettingsConstants.DYNAMIC_THEME_TYPE) ?: false }
+            val amoledTheme =
+                async { settingsDataStore.getBoolean(SettingsConstants.AMOLED_THEME_TYPE) ?: false }
+            val dynamicTheming = async {
+                settingsDataStore.getBoolean(SettingsConstants.DYNAMIC_THEME_TYPE) ?: false
+            }
             _state.update {
                 it.copy(
                     firstLaunch = firstLaunch.await(),
@@ -49,7 +53,7 @@ class SettingsViewModel @Inject constructor(
     fun onEvent(event: SettingsEvent) {
         when (event) {
             SettingsEvent.SetFirstLaunch -> {
-                viewModelScope.launch {
+                viewModelScope.launch(Dispatchers.IO) {
                     settingsDataStore.putBoolean(SettingsConstants.FIRST_LAUNCH, false)
                     _state.update {
                         it.copy(firstLaunch = false)
@@ -57,8 +61,38 @@ class SettingsViewModel @Inject constructor(
                 }
             }
 
-            is SettingsEvent.SetDarkMode -> TODO()
-            is SettingsEvent.SetAmoledTheme -> TODO()
+            is SettingsEvent.SetDarkMode -> {
+                viewModelScope.launch(Dispatchers.IO) {
+                    when (event.darkMode) {
+                        true -> {
+                            settingsDataStore.putBoolean(SettingsConstants.DARK_MODE_TYPE, true)
+                        }
+
+                        false -> {
+                            settingsDataStore.putBoolean(SettingsConstants.DARK_MODE_TYPE, false)
+                        }
+
+                        null -> {
+                            settingsDataStore.deleteBoolean(SettingsConstants.DARK_MODE_TYPE)
+                        }
+                    }
+                    _state.update {
+                        it.copy(
+                            darkMode = event.darkMode
+                        )
+                    }
+                }
+            }
+
+            is SettingsEvent.SetAmoledTheme -> {
+                viewModelScope.launch(Dispatchers.IO) {
+                    settingsDataStore.putBoolean(SettingsConstants.AMOLED_THEME_TYPE, event.amoledTheme)
+                    if (event.amoledTheme){
+
+                    }
+                }
+            }
+
             is SettingsEvent.SetDynamicTheming -> TODO()
         }
     }
