@@ -9,6 +9,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.compose.LifecycleStartEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.app.docshaper.core.SettingsConstants.FIRST_LAUNCH
 import com.app.docshaper.data.settings.SettingsDataStore
@@ -41,8 +42,9 @@ class MainActivity : ComponentActivity() {
         )
         val splashScreen = installSplashScreen()
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.R) {
-            //TODO
+            //TODO Exit animation for the splash Screen
         }
+
         splashScreen.setKeepOnScreenCondition { settingsViewModel.setKeepOnScreenCondition }
         setContent {
             val firstLaunch = runBlocking { settingsDataStore.getBoolean(FIRST_LAUNCH) ?: true }
