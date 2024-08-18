@@ -13,12 +13,12 @@ DocShaper is an open-source Android application that serves as an all-in-one doc
 
 ## Technologies
 
-- [Kotlin](https://kotlinlang.org/) - A programming language that is used for Android app development
-- [Jetpack Compose](https://developer.android.com/develop/ui/compose) - A declarative UI toolkit for building native Android UI
-- [Material 3](https://m3.material.io/) - A UI design system git for modern UI guidelines
-- [Mvi](https://www.geeksforgeeks.org/model-view-intent-mvi-pattern-in-reactive-programming-a-comprehensive-overview/) - A modern design pattern for reactive programming
-- [Dagger Hilt](https://dagger.dev/hilt/) - A dependency injection library
-- [Preferences DataStore](https://developer.android.com/codelabs/android-preferences-datastore) - DataStore is a new and improved data storage solution aimed at replacing SharedPreferences
+- [Kotlin](https://kotlinlang.org/) - Programming language for Android app development.
+- [Jetpack Compose](https://developer.android.com/develop/ui/compose) - Declarative UI toolkit for building native Android UIs.
+- [Material 3](https://m3.material.io/) - UI design system for modern guidelines.
+- [Mvi](https://www.geeksforgeeks.org/model-view-intent-mvi-pattern-in-reactive-programming-a-comprehensive-overview/) - Modern design pattern for reactive programming.
+- [Dagger Hilt](https://dagger.dev/hilt/) - Dependency injection library.
+- [Preferences DataStore](https://developer.android.com/codelabs/android-preferences-datastore) - New and improved data storage solution, replacing SharedPreferences.
 
 Thanks to the creators and maintainers of the open-source libraries used in this project.
 
@@ -41,5 +41,5 @@ This project is built using Kotlin, Java, and Gradle. Here are the steps to buil
 
 
 ## Contributions
-DocShaper is licensed under the MIT License. For more details, see the LICENSE file.
+DocShaper is licensed under the MIT License. For more details, see the [LICENSE](https://github.com/navneetpal01/DocShaper/blob/master/LICENSE) file.
 We welcome all contributions to the app. Feel free to report any issues and create pull requests for improvements or bug fixes.
