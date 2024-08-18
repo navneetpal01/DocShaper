@@ -11,16 +11,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = system_theme_light_primary,
-    onPrimary = system_theme_light_onPrimary,
-    primaryContainer = system_theme_light_primaryContainer
+    primary = system_theme_dark_primary,
+    onPrimary = system_theme_dark_onPrimary,
+    primaryContainer = system_theme_dark_primaryContainer
 
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = system_theme_dark_primary,
-    onPrimary = system_theme_dark_onPrimary,
-    primaryContainer = system_theme_dark_primaryContainer
+    primary = system_theme_light_primary,
+    onPrimary = system_theme_light_onPrimary,
+    primaryContainer = system_theme_light_primaryContainer
 )
 
 private val AmoledDarkColors = darkColorScheme(

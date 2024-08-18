@@ -9,10 +9,12 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.app.docshaper.core.SettingsConstants.FIRST_LAUNCH
 import com.app.docshaper.data.settings.SettingsDataStore
 import com.app.docshaper.presentation.DocShaperApp
 import com.app.docshaper.presentation.settings_screen.SettingsViewModel
+import com.app.docshaper.ui.theme.DocShaperTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
@@ -44,13 +46,20 @@ class MainActivity : ComponentActivity() {
         splashScreen.setKeepOnScreenCondition { settingsViewModel.setKeepOnScreenCondition }
         setContent {
             val firstLaunch = runBlocking { settingsDataStore.getBoolean(FIRST_LAUNCH) ?: true }
-            DocShaperApp(
-                firstLaunch = firstLaunch,
-                settingsViewModel = settingsViewModel,
-                finishActivity = {
-                    finish()
-                }
-            )
+            val settingsState = settingsViewModel.state.collectAsStateWithLifecycle()
+            DocShaperTheme(
+                darkMode = settingsState.value.darkMode,
+                amoledMode = settingsState.value.amoledTheme,
+                dynamicTheming = settingsState.value.dynamicTheming
+            ) {
+                DocShaperApp(
+                    firstLaunch = firstLaunch,
+                    settingsViewModel = settingsViewModel,
+                    finishActivity = {
+                        finish()
+                    }
+                )
+            }
         }
     }
 
