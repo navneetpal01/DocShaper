@@ -86,14 +86,39 @@ class SettingsViewModel @Inject constructor(
 
             is SettingsEvent.SetAmoledTheme -> {
                 viewModelScope.launch(Dispatchers.IO) {
-                    settingsDataStore.putBoolean(SettingsConstants.AMOLED_THEME_TYPE, event.amoledTheme)
-                    if (event.amoledTheme){
-
+                    settingsDataStore.putBoolean(
+                        SettingsConstants.AMOLED_THEME_TYPE,
+                        event.amoledTheme
+                    )
+                    if (event.amoledTheme) {
+                        settingsDataStore.putBoolean(SettingsConstants.DYNAMIC_THEME_TYPE, false)
+                    }
+                    _state.update {
+                        it.copy(
+                            amoledTheme = event.amoledTheme,
+                            dynamicTheming = if (event.amoledTheme) false else it.dynamicTheming
+                        )
                     }
                 }
             }
 
-            is SettingsEvent.SetDynamicTheming -> TODO()
+            is SettingsEvent.SetDynamicTheming -> {
+                viewModelScope.launch(Dispatchers.IO) {
+                    settingsDataStore.putBoolean(
+                        SettingsConstants.DYNAMIC_THEME_TYPE,
+                        event.dynamicTheming
+                    )
+                    if (event.dynamicTheming) {
+                        settingsDataStore.putBoolean(SettingsConstants.AMOLED_THEME_TYPE, false)
+                    }
+                    _state.update {
+                        it.copy(
+                            amoledTheme = if (event.dynamicTheming) false else it.amoledTheme,
+                            dynamicTheming = event.dynamicTheming
+                        )
+                    }
+                }
+            }
         }
     }
 
