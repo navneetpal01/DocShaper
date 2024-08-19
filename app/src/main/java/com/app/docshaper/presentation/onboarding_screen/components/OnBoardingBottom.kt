@@ -46,6 +46,7 @@ fun OnBoardingBottom() {
 private fun OnBoardingBottomButton() {
     Row(
         modifier = Modifier
+            .padding(horizontal = 10.dp)
             .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceEvenly
@@ -55,7 +56,6 @@ private fun OnBoardingBottomButton() {
 
             },
             modifier = Modifier
-                .padding(horizontal = 10.dp)
                 .weight(1f),
             colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onPrimaryContainer),
             shape = CircleShape
@@ -77,7 +77,7 @@ private fun OnBoardingBottomButton() {
 
             },
             modifier = Modifier
-                .padding(10.dp)
+                .padding(start = 5.dp)
                 .weight(1f),
             colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onPrimary),
             shape = CircleShape,
