@@ -13,20 +13,28 @@ import androidx.compose.ui.platform.LocalContext
 private val DarkColorScheme = darkColorScheme(
     primary = system_theme_dark_primary,
     onPrimary = system_theme_dark_onPrimary,
-    primaryContainer = system_theme_dark_primaryContainer
-
+    primaryContainer = system_theme_dark_primaryContainer,
+    onPrimaryContainer = system_theme_dark_onPrimaryContainer,
+    inversePrimary = text_theme_dark_inversePrimary,
+    secondary = text_theme_dark_secondary
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = system_theme_light_primary,
     onPrimary = system_theme_light_onPrimary,
-    primaryContainer = system_theme_light_primaryContainer
+    primaryContainer = system_theme_light_primaryContainer,
+    onPrimaryContainer = system_theme_light_onPrimaryContainer,
+    inversePrimary = text_theme_light_inversePrimary,
+    secondary = text_theme_light_secondary
 )
 
 private val AmoledDarkColors = darkColorScheme(
     primary = system_theme_dark_primary,
     onPrimary = system_theme_dark_onPrimary,
-    primaryContainer = system_theme_dark_primaryContainer
+    primaryContainer = system_theme_dark_primaryContainer,
+    onPrimaryContainer = system_theme_dark_onPrimaryContainer,
+    inversePrimary = text_theme_dark_inversePrimary,
+    secondary = text_theme_dark_secondary
 )
 
 @Composable
