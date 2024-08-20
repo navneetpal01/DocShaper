@@ -1,6 +1,5 @@
 package com.app.docshaper.presentation.onboarding_screen.components
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -19,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.app.docshaper.ui.theme.royal_blue
 
 
 @Composable
@@ -27,25 +27,6 @@ fun OnBoardingIndicator(
     pagerState: PagerState,
     modifier: Modifier = Modifier,
     spacing: Dp = 10.dp
-) {
-
-    Box(
-        modifier = modifier,
-        contentAlignment = Alignment.CenterStart
-    ) {
-
-
-    }
-
-}
-
-@OptIn(ExperimentalFoundationApi::class)
-@Composable
-fun WormIndicator(
-    count: Int,
-    pagerState: PagerState,
-    modifier: Modifier = Modifier,
-    spacing: Dp = 10.dp,
 ) {
 
     Box(
@@ -61,7 +42,7 @@ fun WormIndicator(
             repeat(count) {
                 Box(
                     modifier = Modifier
-                        .size(20.dp)
+                        .size(10.dp)
                         .background(
                             color = Color.White,
                             shape = CircleShape
@@ -73,11 +54,11 @@ fun WormIndicator(
         Box(
             Modifier
                 .wormTransition(pagerState)
-                .size(20.dp)
+                .size(10.dp)
         )
     }
-}
 
+}
 private fun Modifier.wormTransition(
     pagerState: PagerState
 ) =
@@ -96,7 +77,5 @@ private fun Modifier.wormTransition(
         )
 
         val path = Path().apply { addRoundRect(worm) }
-        drawPath(path = path, color = Color.White)
+        drawPath(path = path, color = royal_blue)
     }
-
-
