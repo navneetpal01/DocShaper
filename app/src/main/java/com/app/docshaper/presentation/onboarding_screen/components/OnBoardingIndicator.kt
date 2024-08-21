@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.app.docshaper.ui.theme.element_indicator
 import com.app.docshaper.ui.theme.royal_blue
 
 
@@ -44,7 +45,7 @@ fun OnBoardingIndicator(
                     modifier = Modifier
                         .size(10.dp)
                         .background(
-                            color = Color.White,
+                            color = element_indicator,
                             shape = CircleShape
                         )
                 )

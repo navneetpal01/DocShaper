@@ -57,7 +57,7 @@ private fun OnBoardingBottomButton(
 ) {
     Row(
         modifier = Modifier
-            .padding(horizontal = 10.dp, vertical = 30.dp)
+            .padding(horizontal = 10.dp, vertical = 25.dp)
             .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceEvenly
