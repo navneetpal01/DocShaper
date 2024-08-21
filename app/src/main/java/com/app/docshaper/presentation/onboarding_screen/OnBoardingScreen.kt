@@ -54,7 +54,7 @@ fun OnBoardingScreen(
     ) { paddingValues ->
         Column(
             modifier = Modifier
-                .fillMaxHeight()
+                .fillMaxSize()
                 .padding(paddingValues)
         ) {
             HorizontalPager(
