@@ -18,8 +18,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.app.docshaper.ui.theme.element_indicator
-import com.app.docshaper.ui.theme.royal_blue
 
 
 @Composable
@@ -45,7 +43,7 @@ fun OnBoardingIndicator(
                     modifier = Modifier
                         .size(10.dp)
                         .background(
-                            color = element_indicator,
+                            color = Color(android.graphics.Color.parseColor("#E7E7E8")),
                             shape = CircleShape
                         )
                 )
@@ -60,6 +58,7 @@ fun OnBoardingIndicator(
     }
 
 }
+
 private fun Modifier.wormTransition(
     pagerState: PagerState
 ) =
@@ -78,5 +77,5 @@ private fun Modifier.wormTransition(
         )
 
         val path = Path().apply { addRoundRect(worm) }
-        drawPath(path = path, color = royal_blue)
+        drawPath(path = path, color = Color(android.graphics.Color.parseColor("#2E75FF")))
     }

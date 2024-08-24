@@ -19,7 +19,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.app.docshaper.ui.theme.cloud_mist
 import com.app.docshaper.ui.theme.urbanist_bold
 
 
@@ -66,7 +65,7 @@ private fun OnBoardingBottomButton(
             onClick = onSkip,
             modifier = Modifier
                 .weight(1f),
-            colors = ButtonDefaults.buttonColors(containerColor = cloud_mist),
+            colors = ButtonDefaults.buttonColors(containerColor = Color(android.graphics.Color.parseColor("#FAFAFA"))),
             shape = CircleShape
         ) {
             Text(
@@ -78,7 +77,7 @@ private fun OnBoardingBottomButton(
                     fontWeight = FontWeight.Normal,
                     fontFamily = urbanist_bold,
                 ),
-                color = MaterialTheme.colorScheme.onPrimary,
+                color = Color(android.graphics.Color.parseColor("#2E75FF")),
             )
         }
         ElevatedButton(
@@ -86,10 +85,9 @@ private fun OnBoardingBottomButton(
             modifier = Modifier
                 .padding(start = 5.dp)
                 .weight(1f),
-            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onPrimary),
+            colors = ButtonDefaults.buttonColors(containerColor = Color(android.graphics.Color.parseColor("#2E75FF"))),
             shape = CircleShape,
-        ) {
-            Text(
+        ) { Text(
                 text = "Next",
                 modifier = Modifier
                     .padding(vertical = 10.dp),
