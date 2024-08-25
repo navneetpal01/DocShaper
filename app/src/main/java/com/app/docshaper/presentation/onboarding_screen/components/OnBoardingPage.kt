@@ -1,23 +1,24 @@
 package com.app.docshaper.presentation.onboarding_screen.components
 
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -30,21 +31,34 @@ import com.app.docshaper.ui.theme.urbanist_regular
 
 @Composable
 fun OnBoardingPage(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    pagerState: PagerState
 ) {
+
+    val list = remember {
+        listOf()
+    }
 
     Column(
         modifier = modifier
             .fillMaxSize(),
     ) {
-        Image(
+        HorizontalPager(
+            state = pagerState,
             modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth(),
-            painter = painterResource(id = R.drawable.image),
-            contentScale = ContentScale.Crop,
-            contentDescription = "onboarding_image"
-        )
+            userScrollEnabled = false,
+        ) {
+            Image(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth(),
+                painter = painterResource(id = R.drawable.onboarding_01),
+                contentScale = ContentScale.Fit,
+                contentDescription = "onboarding_image"
+            )
+        }
         Column(
             modifier = Modifier
                 .wrapContentHeight()
@@ -78,3 +92,9 @@ fun OnBoardingPage(
         }
     }
 }
+
+data class OnBoarding(
+    @DrawableRes val image: Int,
+    @StringRes val title: Int,
+    @StringRes val description: Int
+)

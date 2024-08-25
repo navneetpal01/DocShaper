@@ -3,7 +3,6 @@ package com.app.docshaper.presentation.onboarding_screen
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -46,14 +45,11 @@ fun OnBoardingScreen(
         contentWindowInsets = WindowInsets(top = 0),
         containerColor = Color.White
     ) { paddingValues ->
-        HorizontalPager(
-            state = pagerState,
+        OnBoardingPage(
             modifier = Modifier
                 .padding(paddingValues)
                 .fillMaxSize(),
-            userScrollEnabled = false,
-        ) {
-            OnBoardingPage()
-        }
+            pagerState = pagerState
+        )
     }
 }
