@@ -53,7 +53,11 @@ fun OnBoardingScreen(
                 pagerState = pagerState,
                 onSkip = {
                     scope.launch {
-                        pagerState.animateScrollToPage(list.lastIndex)
+                        if (pagerState.currentPage == 0) {
+                            pagerState.animateScrollToPage(list.lastIndex)
+                        } else {
+                            pagerState.animateScrollToPage(pagerState.currentPage - 1)
+                        }
                     }
                 },
                 onNext = {

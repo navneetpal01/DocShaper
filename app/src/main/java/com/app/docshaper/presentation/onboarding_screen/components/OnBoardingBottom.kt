@@ -41,6 +41,8 @@ fun OnBoardingBottom(
             pagerState = pagerState,
         )
         OnBoardingBottomButton(
+            skip = if (pagerState.currentPage == 0) "Skip" else "Back",
+            next = if (pagerState.currentPage == 2) "Start" else "Next",
             onSkip = onSkip,
             onNext = onNext
         )
@@ -50,6 +52,8 @@ fun OnBoardingBottom(
 
 @Composable
 private fun OnBoardingBottomButton(
+    skip : String,
+    next : String,
     onSkip: () -> Unit,
     onNext: () -> Unit
 ) {
@@ -74,7 +78,7 @@ private fun OnBoardingBottomButton(
             shape = CircleShape
         ) {
             Text(
-                text = "Skip",
+                text = skip,
                 modifier = Modifier
                     .padding(vertical = 10.dp),
                 style = TextStyle(
@@ -100,7 +104,7 @@ private fun OnBoardingBottomButton(
             shape = CircleShape,
         ) {
             Text(
-                text = "Next",
+                text = next,
                 modifier = Modifier
                     .padding(vertical = 10.dp),
                 style = TextStyle(
