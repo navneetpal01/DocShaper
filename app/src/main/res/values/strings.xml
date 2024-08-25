@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">DocShaper</string>
+    <string name="onboarding01_title">Scan your docs in a snap</string>
+    <string name="onboarding01_description">Easily convert documents, forms, business cards, and whiteboards into high-quality PDFs with Adobe Scan. Different capture modes give you just what you need to get the best scan every time.</string>
+    <string name="onboarding02_title">AI cleans up your scans</string>
+    <string name="onboarding02_description">Scan a document and turn it into an editable, searchable PDF instantly with our AI-driven mobile app. OCR (optical character recognition) corrects image perspective, sharpens handwritten or printed text, and removes glares and shadows. Once your doc is scanned, you can delete text or add new text to match your original font.</string>
+    <string name="onboarding03_title">Do more with your scans</string>
+    <string name="onboarding03_description">Adobe Scan gives you the power to not only scan a document, but add drawings, shapes, and JPEGs to your PDFs right in the app. You can even save files as JPEGs for more flexibility, share scanned PDFs with a link or email, and upload them to your favorite cloud apps — all for free.</string>
     <string name="screen_home">Home</string>
-    <string name="screen_files">Home</string>
-    <string name="screen_search">Home</string>
+    <string name="screen_files">files</string>
+    <string name="screen_search">search</string>
 </resources>
