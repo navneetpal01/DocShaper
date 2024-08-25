@@ -9,7 +9,6 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ElevatedButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -65,7 +64,13 @@ private fun OnBoardingBottomButton(
             onClick = onSkip,
             modifier = Modifier
                 .weight(1f),
-            colors = ButtonDefaults.buttonColors(containerColor = Color(android.graphics.Color.parseColor("#FAFAFA"))),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(
+                    android.graphics.Color.parseColor(
+                        "#FAFAFA"
+                    )
+                )
+            ),
             shape = CircleShape
         ) {
             Text(
@@ -85,9 +90,16 @@ private fun OnBoardingBottomButton(
             modifier = Modifier
                 .padding(start = 5.dp)
                 .weight(1f),
-            colors = ButtonDefaults.buttonColors(containerColor = Color(android.graphics.Color.parseColor("#2E75FF"))),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(
+                    android.graphics.Color.parseColor(
+                        "#2E75FF"
+                    )
+                )
+            ),
             shape = CircleShape,
-        ) { Text(
+        ) {
+            Text(
                 text = "Next",
                 modifier = Modifier
                     .padding(vertical = 10.dp),

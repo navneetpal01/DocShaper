@@ -3,7 +3,6 @@ package com.app.docshaper.presentation.onboarding_screen.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -32,26 +31,11 @@ import com.app.docshaper.ui.theme.urbanist_regular
 
 @Composable
 fun OnBoardingPage(
-    modifier: Modifier = Modifier, pagerState: PagerState
+    modifier: Modifier = Modifier,
+    pagerState: PagerState,
+    list : List<OnBoardingTab>
 ) {
 
-    val list = remember {
-        listOf(
-            OnBoardingTab(
-                image = R.drawable.onboarding_1,
-                title = R.string.onboarding01_title,
-                description = R.string.onboarding01_description
-            ), OnBoardingTab(
-                image = R.drawable.onboarding_2,
-                title = R.string.onboarding02_title,
-                description = R.string.onboarding02_description
-            ), OnBoardingTab(
-                image = R.drawable.onboarding_3,
-                title = R.string.onboarding03_title,
-                description = R.string.onboarding03_description
-            )
-        )
-    }
 
     Column(
         modifier = modifier.fillMaxSize(),
